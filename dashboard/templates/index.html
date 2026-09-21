@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>5G-WIDS | 5G Wireless Intrusion Detection System</title>
-    <meta name="description" content="AI-driven 5G Wireless Intrusion Detection System powered by HTSTCL-GNN (Hierarchical Spatio-Temporal Contrastive Learning Graph Neural Network)">
+    <meta name="description"
+        content="AI-driven 5G Wireless Intrusion Detection System powered by HTSTCL-GNN (Hierarchical Spatio-Temporal Contrastive Learning Graph Neural Network)">
     <!-- Google Fonts: Inter & JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap"
+        rel="stylesheet">
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
     <link rel="stylesheet" href="/static/css/style.css">
 </head>
+
 <body>
     <!-- Top Navigation Bar -->
     <header class="cyber-navbar">
@@ -46,7 +51,7 @@
                 <span class="status-pulse"></span>
                 <div class="status-details">
                     <span class="status-label">MODEL ACTIVE</span>
-                    <span class="status-model">htstcl_gnn_best.pth &bull; 98.41% Acc</span>
+                    <span class="status-model">htstcl_gnn_best.pth &bull; 97.33% Acc</span>
                 </div>
             </div>
         </div>
@@ -54,7 +59,7 @@
 
     <!-- Main Content Area -->
     <main class="main-container">
-        
+
         <!-- ============================================================== -->
         <!-- SECTION 1: DASHBOARD                                          -->
         <!-- ============================================================== -->
@@ -65,12 +70,14 @@
                     <div class="hero-chip"><i class="fa-solid fa-microchip"></i> Next-Gen 5G Core & RAN Security</div>
                     <h1 class="hero-heading">Hierarchical Spatio-Temporal Graph Neural Network</h1>
                     <p class="hero-desc">
-                        Protecting 5G network slices (eMBB, URLLC, mMTC) against stealthy cyberattacks, zero-day intrusions, and distributed volumetric attacks using deep graph topology and temporal sequence contrastive learning.
+                        Protecting 5G network slices (eMBB, URLLC, mMTC) against stealthy cyberattacks, zero-day
+                        intrusions, and distributed volumetric attacks using deep graph topology and temporal sequence
+                        contrastive learning.
                     </p>
                 </div>
                 <div class="hero-stats-grid">
                     <div class="hero-stat-card">
-                        <span class="stat-num glow-cyan">98.41%</span>
+                        <span class="stat-num glow-cyan">97.33%</span>
                         <span class="stat-label"><i class="fa-solid fa-bullseye"></i> Test Accuracy</span>
                     </div>
                     <div class="hero-stat-card">
@@ -108,28 +115,32 @@
                                 <div class="step-badge">01</div>
                                 <div class="step-info">
                                     <h4>Spatial Graph Encoder (GAT)</h4>
-                                    <p>Constructs k-NN flow graphs (k=2) and utilizes 4-head Graph Attention to capture node-level correlations across 91 flow features.</p>
+                                    <p>Constructs k-NN flow graphs (k=2) and utilizes 4-head Graph Attention to capture
+                                        node-level correlations across 91 flow features.</p>
                                 </div>
                             </div>
                             <div class="arch-step">
                                 <div class="step-badge">02</div>
                                 <div class="step-info">
                                     <h4>Temporal Encoder (Bi-GRU)</h4>
-                                    <p>Processes sliding sequences of 5 consecutive temporal graphs to detect time-series attack progression and low-rate anomalies.</p>
+                                    <p>Processes sliding sequences of 5 consecutive temporal graphs to detect
+                                        time-series attack progression and low-rate anomalies.</p>
                                 </div>
                             </div>
                             <div class="arch-step">
                                 <div class="step-badge">03</div>
                                 <div class="step-info">
                                     <h4>Hierarchical Cross-Modal Fusion</h4>
-                                    <p>Multi-head self-attention fuses spatial graph embeddings and temporal dynamics into an unified 128-dimensional latent representation.</p>
+                                    <p>Multi-head self-attention fuses spatial graph embeddings and temporal dynamics
+                                        into an unified 128-dimensional latent representation.</p>
                                 </div>
                             </div>
                             <div class="arch-step">
                                 <div class="step-badge">04</div>
                                 <div class="step-info">
                                     <h4>Self-Supervised Contrastive Learning</h4>
-                                    <p>Trained with hybrid InfoNCE contrastive loss and weighted cross-entropy for superior boundary separation on unbalanced traffic.</p>
+                                    <p>Trained with hybrid InfoNCE contrastive loss and weighted cross-entropy for
+                                        superior boundary separation on unbalanced traffic.</p>
                                 </div>
                             </div>
                         </div>
@@ -225,28 +236,32 @@
                         <img src="/assets/roc_curve.png" alt="ROC Curve" class="viz-img">
                         <div class="viz-caption">
                             <h4>Receiver Operating Characteristic (ROC-AUC: 0.9986)</h4>
-                            <p>Demonstrates near-perfect discrimination threshold separation between legitimate 5G user plane traffic and malicious attack signatures.</p>
+                            <p>Demonstrates near-perfect discrimination threshold separation between legitimate 5G user
+                                plane traffic and malicious attack signatures.</p>
                         </div>
                     </div>
                     <div id="viz-panel-pr" class="viz-panel">
                         <img src="/assets/precision_recall_curve.png" alt="Precision-Recall Curve" class="viz-img">
                         <div class="viz-caption">
                             <h4>Precision-Recall Curve (Average Precision: 0.9993)</h4>
-                            <p>High precision maintained across high recall operating regimes, crucial for 5G mission-critical zero-false-alarm SLAs.</p>
+                            <p>High precision maintained across high recall operating regimes, crucial for 5G
+                                mission-critical zero-false-alarm SLAs.</p>
                         </div>
                     </div>
                     <div id="viz-panel-cf" class="viz-panel">
                         <img src="/assets/test_confusion_matrix.png" alt="Test Confusion Matrix" class="viz-img">
                         <div class="viz-caption">
                             <h4>Normalized Test Confusion Matrix</h4>
-                            <p>Evaluating 7,296 unseen test network sequences showing 98.41% overall multiclass detection accuracy.</p>
+                            <p>Evaluating 7,296 unseen test network sequences showing 98.41% overall multiclass
+                                detection accuracy.</p>
                         </div>
                     </div>
                     <div id="viz-panel-feat" class="viz-panel">
                         <img src="/assets/top20_feature_importance.png" alt="Top 20 Feature Importance" class="viz-img">
                         <div class="viz-caption">
                             <h4>Top 20 Ranked Flow Features</h4>
-                            <p>Key discriminators include Flow Duration (`Dur`), Time to Live (`sTtl`, `dTtl`), Byte Rates (`TotBytes`, `SrcRate`), and TCP handshake metrics (`TcpRtt`).</p>
+                            <p>Key discriminators include Flow Duration (`Dur`), Time to Live (`sTtl`, `dTtl`), Byte
+                                Rates (`TotBytes`, `SrcRate`), and TCP handshake metrics (`TcpRtt`).</p>
                         </div>
                     </div>
                 </div>
@@ -259,12 +274,14 @@
                         <i class="fa-solid fa-list-check card-icon"></i>
                         <div>
                             <h3 class="card-title">91 HTSTCL-GNN Input Features Directory</h3>
-                            <p class="card-sub">Preprocessed flow metrics categorized into 6 functional security groups</p>
+                            <p class="card-sub">Preprocessed flow metrics categorized into 6 functional security groups
+                            </p>
                         </div>
                     </div>
                     <div class="feature-search-box">
                         <i class="fa-solid fa-magnifying-glass"></i>
-                        <input type="text" id="feature-filter-input" placeholder="Filter features..." onkeyup="filterFeatures()">
+                        <input type="text" id="feature-filter-input" placeholder="Filter features..."
+                            onkeyup="filterFeatures()">
                     </div>
                 </div>
                 <div class="card-body">
@@ -279,10 +296,10 @@
         <!-- SECTION 2: LIVE TRAFFIC UPLOAD & ANALYSIS                     -->
         <!-- ============================================================== -->
         <section id="section-upload" class="tab-content">
-            
+
             <!-- Side-by-Side Ingestion & Requirements Layout -->
             <div class="two-col-grid">
-                
+
                 <!-- Left: File Upload & Trigger -->
                 <div class="cyber-card">
                     <div class="card-header">
@@ -297,8 +314,10 @@
                     </div>
                     <div class="card-body">
                         <!-- Drag & Drop Zone -->
-                        <div class="upload-dropzone" id="drop-zone" onclick="document.getElementById('file-input').click()">
-                            <input type="file" id="file-input" accept=".csv" style="display:none" onchange="handleFileSelect(event)">
+                        <div class="upload-dropzone" id="drop-zone"
+                            onclick="document.getElementById('file-input').click()">
+                            <input type="file" id="file-input" accept=".csv" style="display:none"
+                                onchange="handleFileSelect(event)">
                             <div class="dropzone-inner">
                                 <div class="dropzone-icon">
                                     <i class="fa-solid fa-network-wired"></i>
@@ -365,7 +384,8 @@
                             <div class="req-icon"><i class="fa-solid fa-table-columns"></i></div>
                             <div class="req-content">
                                 <h4>91 Numerical Flow Features</h4>
-                                <p>Columns must match the trained model's feature space (duration, packet counts, byte volumes, load, rates, TCP flags, protocols, and QoS DSCP slicing).</p>
+                                <p>Columns must match the trained model's feature space (duration, packet counts, byte
+                                    volumes, load, rates, TCP flags, protocols, and QoS DSCP slicing).</p>
                             </div>
                         </div>
 
@@ -373,7 +393,9 @@
                             <div class="req-icon"><i class="fa-solid fa-layer-group"></i></div>
                             <div class="req-content">
                                 <h4>Window & Sequence Grouping</h4>
-                                <p>Flows are grouped into <strong>windows of $W=5$ records</strong> to construct k-NN topological graphs, and consecutive windows form <strong>5-graph temporal sequences</strong>.</p>
+                                <p>Flows are grouped into <strong>windows of $W=5$ records</strong> to construct k-NN
+                                    topological graphs, and consecutive windows form <strong>5-graph temporal
+                                        sequences</strong>.</p>
                             </div>
                         </div>
 
@@ -381,7 +403,8 @@
                             <div class="req-icon"><i class="fa-solid fa-filter"></i></div>
                             <div class="req-content">
                                 <h4>Missing Value & Header Handling</h4>
-                                <p>Any missing headers or null/NaN cells are automatically imputed with zero and globally normalized via standard deviation scaling.</p>
+                                <p>Any missing headers or null/NaN cells are automatically imputed with zero and
+                                    globally normalized via standard deviation scaling.</p>
                             </div>
                         </div>
 
@@ -389,7 +412,8 @@
                             <div class="req-icon"><i class="fa-solid fa-tag"></i></div>
                             <div class="req-content">
                                 <h4>Ground Truth Columns (Optional)</h4>
-                                <p>Columns <code>Label</code> and <code>Attack Type</code> (e.g. <em>SYNScan</em>) are optional. If present, the engine compares ML detections with ground truth.</p>
+                                <p>Columns <code>Label</code> and <code>Attack Type</code> (e.g. <em>SYNScan</em>) are
+                                    optional. If present, the engine compares ML detections with ground truth.</p>
                             </div>
                         </div>
 
@@ -412,7 +436,7 @@
             <!-- DYNAMIC RESULTS SECTION (Revealed after enter/analyze)         -->
             <!-- ============================================================== -->
             <div id="results-container" class="results-wrapper" style="display:none;">
-                
+
                 <!-- Section Title Banner -->
                 <div class="results-header-banner" id="results-banner">
                     <div class="banner-left">
@@ -421,7 +445,8 @@
                         </div>
                         <div>
                             <h2 class="banner-title" id="banner-title">Threat Assessment: ELEVATED</h2>
-                            <p class="banner-desc" id="banner-desc">HTSTCL-GNN inference completed across all temporal graph sequences.</p>
+                            <p class="banner-desc" id="banner-desc">HTSTCL-GNN inference completed across all temporal
+                                graph sequences.</p>
                         </div>
                     </div>
                     <div class="banner-right">
@@ -485,7 +510,8 @@
                                 <i class="fa-solid fa-chart-pie card-icon"></i>
                                 <div>
                                     <h3 class="card-title">Attack Type Distribution</h3>
-                                    <p class="card-sub">Proportional breakdown of normal traffic vs detected threat classes</p>
+                                    <p class="card-sub">Proportional breakdown of normal traffic vs detected threat
+                                        classes</p>
                                 </div>
                             </div>
                         </div>
@@ -522,7 +548,8 @@
                             <i class="fa-solid fa-list-ol card-icon"></i>
                             <div>
                                 <h3 class="card-title">Detailed Flow-by-Flow Inspection</h3>
-                                <p class="card-sub">Individual flow predictions, confidence metrics, and threat classification</p>
+                                <p class="card-sub">Individual flow predictions, confidence metrics, and threat
+                                    classification</p>
                             </div>
                         </div>
                         <div class="table-filters">
@@ -574,4 +601,5 @@
 
     <script src="/static/js/app.js"></script>
 </body>
+
 </html>
