@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5G-WIDS | 5G Wireless Intrusion Detection System</title>
+    <meta name="description" content="AI-driven 5G Wireless Intrusion Detection System powered by HTSTCL-GNN (Hierarchical Spatio-Temporal Contrastive Learning Graph Neural Network)">
+    <!-- Google Fonts: Inter & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <!-- Top Navigation Bar -->
+    <header class="cyber-navbar">
+        <div class="nav-container">
+            <div class="brand-section">
+                <div class="brand-icon">
+                    <i class="fa-solid fa-tower-broadcast"></i>
+                </div>
+                <div class="brand-text">
+                    <span class="brand-title">5G-WIDS <span class="brand-badge">HTSTCL-GNN</span></span>
+                    <span class="brand-subtitle">5G Wireless Intrusion Detection System</span>
+                </div>
+            </div>
+
+            <!-- Navbar Tabs -->
+            <nav class="nav-tabs" role="tablist">
+                <button class="nav-tab active" id="tab-dashboard-btn" onclick="switchTab('dashboard')">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span>System Dashboard</span>
+                </button>
+                <button class="nav-tab" id="tab-upload-btn" onclick="switchTab('upload')">
+                    <i class="fa-solid fa-file-shield"></i>
+                    <span>Traffic Upload & Analysis</span>
+                </button>
+            </nav>
+
+            <!-- Model Health Status Pill -->
+            <div class="system-status-pill">
+                <span class="status-pulse"></span>
+                <div class="status-details">
+                    <span class="status-label">MODEL ACTIVE</span>
+                    <span class="status-model">htstcl_gnn_best.pth &bull; 98.41% Acc</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="main-container">
+        
+        <!-- ============================================================== -->
+        <!-- SECTION 1: DASHBOARD                                          -->
+        <!-- ============================================================== -->
+        <section id="section-dashboard" class="tab-content active">
+            <!-- Hero Banner -->
+            <div class="dashboard-hero">
+                <div class="hero-text">
+                    <div class="hero-chip"><i class="fa-solid fa-microchip"></i> Next-Gen 5G Core & RAN Security</div>
+                    <h1 class="hero-heading">Hierarchical Spatio-Temporal Graph Neural Network</h1>
+                    <p class="hero-desc">
+                        Protecting 5G network slices (eMBB, URLLC, mMTC) against stealthy cyberattacks, zero-day intrusions, and distributed volumetric attacks using deep graph topology and temporal sequence contrastive learning.
+                    </p>
+                </div>
+                <div class="hero-stats-grid">
+                    <div class="hero-stat-card">
+                        <span class="stat-num glow-cyan">98.41%</span>
+                        <span class="stat-label"><i class="fa-solid fa-bullseye"></i> Test Accuracy</span>
+                    </div>
+                    <div class="hero-stat-card">
+                        <span class="stat-num glow-green">98.83%</span>
+                        <span class="stat-label"><i class="fa-solid fa-crosshairs"></i> Precision</span>
+                    </div>
+                    <div class="hero-stat-card">
+                        <span class="stat-num glow-blue">98.75%</span>
+                        <span class="stat-label"><i class="fa-solid fa-award"></i> F1-Score</span>
+                    </div>
+                    <div class="hero-stat-card">
+                        <span class="stat-num glow-purple">0.9986</span>
+                        <span class="stat-label"><i class="fa-solid fa-chart-area"></i> ROC-AUC</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Architecture & Details Cards -->
+            <div class="two-col-grid">
+                <!-- Project Details -->
+                <div class="cyber-card">
+                    <div class="card-header">
+                        <div class="card-title-group">
+                            <i class="fa-solid fa-circle-nodes card-icon"></i>
+                            <div>
+                                <h3 class="card-title">HTSTCL-GNN Architecture</h3>
+                                <p class="card-sub">Hierarchical Spatio-Temporal Contrastive Learning</p>
+                            </div>
+                        </div>
+                        <span class="badge-accent">PyTorch 2.10</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="architecture-steps">
+                            <div class="arch-step">
+                                <div class="step-badge">01</div>
+                                <div class="step-info">
+                                    <h4>Spatial Graph Encoder (GAT)</h4>
+                                    <p>Constructs k-NN flow graphs (k=2) and utilizes 4-head Graph Attention to capture node-level correlations across 91 flow features.</p>
+                                </div>
+                            </div>
+                            <div class="arch-step">
+                                <div class="step-badge">02</div>
+                                <div class="step-info">
+                                    <h4>Temporal Encoder (Bi-GRU)</h4>
+                                    <p>Processes sliding sequences of 5 consecutive temporal graphs to detect time-series attack progression and low-rate anomalies.</p>
+                                </div>
+                            </div>
+                            <div class="arch-step">
+                                <div class="step-badge">03</div>
+                                <div class="step-info">
+                                    <h4>Hierarchical Cross-Modal Fusion</h4>
+                                    <p>Multi-head self-attention fuses spatial graph embeddings and temporal dynamics into an unified 128-dimensional latent representation.</p>
+                                </div>
+                            </div>
+                            <div class="arch-step">
+                                <div class="step-badge">04</div>
+                                <div class="step-info">
+                                    <h4>Self-Supervised Contrastive Learning</h4>
+                                    <p>Trained with hybrid InfoNCE contrastive loss and weighted cross-entropy for superior boundary separation on unbalanced traffic.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Test Confusion Matrix & Training Metrics -->
+                <div class="cyber-card">
+                    <div class="card-header">
+                        <div class="card-title-group">
+                            <i class="fa-solid fa-table-cells card-icon"></i>
+                            <div>
+                                <h3 class="card-title">Evaluation Performance Summary</h3>
+                                <p class="card-sub">Test Dataset (7,296 Evaluated Flow Sequences)</p>
+                            </div>
+                        </div>
+                        <span class="badge-success">Best Epoch: 30</span>
+                    </div>
+                    <div class="card-body">
+                        <!-- Confusion Matrix Display -->
+                        <div class="cf-matrix-box">
+                            <div class="cf-header-row">
+                                <span>Ground Truth \ Predicted</span>
+                                <span class="cf-label-tag">Pred Benign</span>
+                                <span class="cf-label-tag">Pred Malicious</span>
+                            </div>
+                            <div class="cf-row">
+                                <span class="cf-row-label">Actual Benign (2,661)</span>
+                                <div class="cf-cell benign-true">
+                                    <span class="cf-val">2,607</span>
+                                    <span class="cf-desc">True Benign (97.97%)</span>
+                                </div>
+                                <div class="cf-cell error-cell">
+                                    <span class="cf-val">54</span>
+                                    <span class="cf-desc">False Alarm (2.03%)</span>
+                                </div>
+                            </div>
+                            <div class="cf-row">
+                                <span class="cf-row-label">Actual Malicious (4,635)</span>
+                                <div class="cf-cell error-cell">
+                                    <span class="cf-val">62</span>
+                                    <span class="cf-desc">Missed Threat (1.34%)</span>
+                                </div>
+                                <div class="cf-cell malicious-true">
+                                    <span class="cf-val">4,573</span>
+                                    <span class="cf-desc">Detected Attack (98.66%)</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Mini KPIs -->
+                        <div class="metrics-pill-grid">
+                            <div class="metric-pill">
+                                <span class="pill-label">Recall</span>
+                                <span class="pill-val">98.66%</span>
+                            </div>
+                            <div class="metric-pill">
+                                <span class="pill-label">Validation Loss</span>
+                                <span class="pill-val">0.0402</span>
+                            </div>
+                            <div class="metric-pill">
+                                <span class="pill-label">Avg Precision</span>
+                                <span class="pill-val">0.9993</span>
+                            </div>
+                            <div class="metric-pill">
+                                <span class="pill-label">Validation Acc</span>
+                                <span class="pill-val">98.44%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Evaluation Visualizations Gallery -->
+            <div class="cyber-card full-width-card">
+                <div class="card-header">
+                    <div class="card-title-group">
+                        <i class="fa-solid fa-chart-pie card-icon"></i>
+                        <div>
+                            <h3 class="card-title">Model Evaluation Visualizations</h3>
+                            <p class="card-sub">ROC Curves, Confusion Matrix, and Ranked Feature Importance</p>
+                        </div>
+                    </div>
+                    <div class="viz-tabs">
+                        <button class="viz-tab-btn active" onclick="switchViz('roc')">ROC Curve</button>
+                        <button class="viz-tab-btn" onclick="switchViz('pr')">PR Curve</button>
+                        <button class="viz-tab-btn" onclick="switchViz('cf')">Confusion Matrix</button>
+                        <button class="viz-tab-btn" onclick="switchViz('feat')">Top 20 Features</button>
+                    </div>
+                </div>
+                <div class="card-body viz-display-area">
+                    <div id="viz-panel-roc" class="viz-panel active">
+                        <img src="/assets/roc_curve.png" alt="ROC Curve" class="viz-img">
+                        <div class="viz-caption">
+                            <h4>Receiver Operating Characteristic (ROC-AUC: 0.9986)</h4>
+                            <p>Demonstrates near-perfect discrimination threshold separation between legitimate 5G user plane traffic and malicious attack signatures.</p>
+                        </div>
+                    </div>
+                    <div id="viz-panel-pr" class="viz-panel">
+                        <img src="/assets/precision_recall_curve.png" alt="Precision-Recall Curve" class="viz-img">
+                        <div class="viz-caption">
+                            <h4>Precision-Recall Curve (Average Precision: 0.9993)</h4>
+                            <p>High precision maintained across high recall operating regimes, crucial for 5G mission-critical zero-false-alarm SLAs.</p>
+                        </div>
+                    </div>
+                    <div id="viz-panel-cf" class="viz-panel">
+                        <img src="/assets/test_confusion_matrix.png" alt="Test Confusion Matrix" class="viz-img">
+                        <div class="viz-caption">
+                            <h4>Normalized Test Confusion Matrix</h4>
+                            <p>Evaluating 7,296 unseen test network sequences showing 98.41% overall multiclass detection accuracy.</p>
+                        </div>
+                    </div>
+                    <div id="viz-panel-feat" class="viz-panel">
+                        <img src="/assets/top20_feature_importance.png" alt="Top 20 Feature Importance" class="viz-img">
+                        <div class="viz-caption">
+                            <h4>Top 20 Ranked Flow Features</h4>
+                            <p>Key discriminators include Flow Duration (`Dur`), Time to Live (`sTtl`, `dTtl`), Byte Rates (`TotBytes`, `SrcRate`), and TCP handshake metrics (`TcpRtt`).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 91 Model Features Explorer -->
+            <div class="cyber-card full-width-card">
+                <div class="card-header">
+                    <div class="card-title-group">
+                        <i class="fa-solid fa-list-check card-icon"></i>
+                        <div>
+                            <h3 class="card-title">91 HTSTCL-GNN Input Features Directory</h3>
+                            <p class="card-sub">Preprocessed flow metrics categorized into 6 functional security groups</p>
+                        </div>
+                    </div>
+                    <div class="feature-search-box">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" id="feature-filter-input" placeholder="Filter features..." onkeyup="filterFeatures()">
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="feature-groups-grid" id="feature-groups-container">
+                        <!-- Populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================== -->
+        <!-- SECTION 2: LIVE TRAFFIC UPLOAD & ANALYSIS                     -->
+        <!-- ============================================================== -->
+        <section id="section-upload" class="tab-content">
+            
+            <!-- Side-by-Side Ingestion & Requirements Layout -->
+            <div class="two-col-grid">
+                
+                <!-- Left: File Upload & Trigger -->
+                <div class="cyber-card">
+                    <div class="card-header">
+                        <div class="card-title-group">
+                            <i class="fa-solid fa-cloud-arrow-up card-icon"></i>
+                            <div>
+                                <h3 class="card-title">Upload Network Traffic</h3>
+                                <p class="card-sub">Feed raw 5G flow records into the HTSTCL-GNN engine</p>
+                            </div>
+                        </div>
+                        <span class="badge-accent">Format: .CSV</span>
+                    </div>
+                    <div class="card-body">
+                        <!-- Drag & Drop Zone -->
+                        <div class="upload-dropzone" id="drop-zone" onclick="document.getElementById('file-input').click()">
+                            <input type="file" id="file-input" accept=".csv" style="display:none" onchange="handleFileSelect(event)">
+                            <div class="dropzone-inner">
+                                <div class="dropzone-icon">
+                                    <i class="fa-solid fa-network-wired"></i>
+                                </div>
+                                <h4 class="dropzone-title">Drop CSV traffic dataset here</h4>
+                                <p class="dropzone-sub">or click to browse from your computer</p>
+                                <div class="dropzone-hint">
+                                    <i class="fa-solid fa-file-csv"></i> Supports .csv flow captures up to 50MB
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Selected File Info Banner -->
+                        <div class="file-info-chip" id="file-info-chip" style="display:none;">
+                            <div class="file-info-left">
+                                <i class="fa-solid fa-file-lines file-badge-icon"></i>
+                                <div>
+                                    <span class="file-name" id="selected-file-name">filename.csv</span>
+                                    <span class="file-size" id="selected-file-size">0 KB</span>
+                                </div>
+                            </div>
+                            <button class="file-remove-btn" onclick="clearSelectedFile(event)">
+                                <i class="fa-solid fa-xmark"></i>
+                            </button>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="upload-actions">
+                            <button class="btn btn-secondary" onclick="loadSampleTraffic()">
+                                <i class="fa-solid fa-vial"></i> Load Sample 5G Traffic
+                            </button>
+                            <button class="btn btn-primary" id="btn-analyze" onclick="runTrafficAnalysis()">
+                                <i class="fa-solid fa-bolt-lightning"></i> Analyze Traffic with HTSTCL-GNN
+                            </button>
+                        </div>
+
+                        <!-- Loading Indicator -->
+                        <div class="analysis-loading-box" id="analysis-loading" style="display:none;">
+                            <div class="cyber-spinner"></div>
+                            <div class="loading-text">
+                                <h4 id="loading-stage">Constructing k-NN Topology Graphs...</h4>
+                                <p>Running temporal graph convolutions & contrastive inference...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: File Requirement Details -->
+                <div class="cyber-card">
+                    <div class="card-header">
+                        <div class="card-title-group">
+                            <i class="fa-solid fa-clipboard-list card-icon"></i>
+                            <div>
+                                <h3 class="card-title">File Requirement Details</h3>
+                                <p class="card-sub">Data formatting guidelines for GNN processing</p>
+                            </div>
+                        </div>
+                        <a href="/download/sample" class="btn-download-sample" title="Download sample template">
+                            <i class="fa-solid fa-download"></i> Sample CSV
+                        </a>
+                    </div>
+                    <div class="card-body requirements-body">
+                        <div class="req-item">
+                            <div class="req-icon"><i class="fa-solid fa-table-columns"></i></div>
+                            <div class="req-content">
+                                <h4>91 Numerical Flow Features</h4>
+                                <p>Columns must match the trained model's feature space (duration, packet counts, byte volumes, load, rates, TCP flags, protocols, and QoS DSCP slicing).</p>
+                            </div>
+                        </div>
+
+                        <div class="req-item">
+                            <div class="req-icon"><i class="fa-solid fa-layer-group"></i></div>
+                            <div class="req-content">
+                                <h4>Window & Sequence Grouping</h4>
+                                <p>Flows are grouped into <strong>windows of $W=5$ records</strong> to construct k-NN topological graphs, and consecutive windows form <strong>5-graph temporal sequences</strong>.</p>
+                            </div>
+                        </div>
+
+                        <div class="req-item">
+                            <div class="req-icon"><i class="fa-solid fa-filter"></i></div>
+                            <div class="req-content">
+                                <h4>Missing Value & Header Handling</h4>
+                                <p>Any missing headers or null/NaN cells are automatically imputed with zero and globally normalized via standard deviation scaling.</p>
+                            </div>
+                        </div>
+
+                        <div class="req-item">
+                            <div class="req-icon"><i class="fa-solid fa-tag"></i></div>
+                            <div class="req-content">
+                                <h4>Ground Truth Columns (Optional)</h4>
+                                <p>Columns <code>Label</code> and <code>Attack Type</code> (e.g. <em>SYNScan</em>) are optional. If present, the engine compares ML detections with ground truth.</p>
+                            </div>
+                        </div>
+
+                        <!-- Sample CSV Preview Box -->
+                        <div class="sample-snippet-box">
+                            <div class="snippet-header">
+                                <span><i class="fa-solid fa-code"></i> Sample Record Snippet</span>
+                                <span class="snippet-badge">100 Flows Ready</span>
+                            </div>
+                            <pre class="snippet-code">Flow_ID, Dur, TotPkts, TotBytes, Rate, TcpRtt, Label, Attack Type
+1,       0.0, 1,       98,       0.0,  0.0,    Benign, Benign
+4,       4.99,184,     221712,   36.6, 0.0,    Benign, Benign
+55,      0.0, 1,       44,       0.0,  0.0,    Malicious, SYNScan</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============================================================== -->
+            <!-- DYNAMIC RESULTS SECTION (Revealed after enter/analyze)         -->
+            <!-- ============================================================== -->
+            <div id="results-container" class="results-wrapper" style="display:none;">
+                
+                <!-- Section Title Banner -->
+                <div class="results-header-banner" id="results-banner">
+                    <div class="banner-left">
+                        <div class="banner-icon" id="banner-status-icon">
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                        </div>
+                        <div>
+                            <h2 class="banner-title" id="banner-title">Threat Assessment: ELEVATED</h2>
+                            <p class="banner-desc" id="banner-desc">HTSTCL-GNN inference completed across all temporal graph sequences.</p>
+                        </div>
+                    </div>
+                    <div class="banner-right">
+                        <span class="threat-level-tag" id="threat-level-tag">CRITICAL</span>
+                    </div>
+                </div>
+
+                <!-- 4 Top KPI Cards -->
+                <div class="kpi-grid">
+                    <div class="kpi-card">
+                        <div class="kpi-icon-wrap cyan-glow">
+                            <i class="fa-solid fa-database"></i>
+                        </div>
+                        <div class="kpi-data">
+                            <span class="kpi-num" id="kpi-total-records">0</span>
+                            <span class="kpi-title">Total Records Analyzed</span>
+                            <span class="kpi-sub" id="kpi-seq-count">0 Temporal Sequences</span>
+                        </div>
+                    </div>
+
+                    <div class="kpi-card">
+                        <div class="kpi-icon-wrap red-glow">
+                            <i class="fa-solid fa-radiation"></i>
+                        </div>
+                        <div class="kpi-data">
+                            <span class="kpi-num color-red" id="kpi-attacks-detected">0</span>
+                            <span class="kpi-title">Attacks Detected</span>
+                            <span class="kpi-sub color-red" id="kpi-attack-pct">0% of traffic</span>
+                        </div>
+                    </div>
+
+                    <div class="kpi-card">
+                        <div class="kpi-icon-wrap green-glow">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <div class="kpi-data">
+                            <span class="kpi-num color-green" id="kpi-normal-count">0</span>
+                            <span class="kpi-title">Normal Traffic Count</span>
+                            <span class="kpi-sub color-green" id="kpi-normal-pct">0% of traffic</span>
+                        </div>
+                    </div>
+
+                    <div class="kpi-card">
+                        <div class="kpi-icon-wrap purple-glow">
+                            <i class="fa-solid fa-gauge-high"></i>
+                        </div>
+                        <div class="kpi-data">
+                            <span class="kpi-num color-purple" id="kpi-avg-confidence">0%</span>
+                            <span class="kpi-title">Average Model Confidence</span>
+                            <span class="kpi-sub">Softmax Likelihood</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts & Attack Breakdown Row -->
+                <div class="two-col-grid">
+                    <!-- Attack Distribution Donut Chart -->
+                    <div class="cyber-card">
+                        <div class="card-header">
+                            <div class="card-title-group">
+                                <i class="fa-solid fa-chart-pie card-icon"></i>
+                                <div>
+                                    <h3 class="card-title">Attack Type Distribution</h3>
+                                    <p class="card-sub">Proportional breakdown of normal traffic vs detected threat classes</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body chart-body">
+                            <div class="chart-canvas-container">
+                                <canvas id="attackDistributionChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Flow Activity Bar Chart -->
+                    <div class="cyber-card">
+                        <div class="card-header">
+                            <div class="card-title-group">
+                                <i class="fa-solid fa-chart-column card-icon"></i>
+                                <div>
+                                    <h3 class="card-title">Detection Classification Breakdown</h3>
+                                    <p class="card-sub">Total flow records by threat severity category</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body chart-body">
+                            <div class="chart-canvas-container">
+                                <canvas id="threatBreakdownBarChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Detailed Flow Inspection Table -->
+                <div class="cyber-card full-width-card">
+                    <div class="card-header">
+                        <div class="card-title-group">
+                            <i class="fa-solid fa-list-ol card-icon"></i>
+                            <div>
+                                <h3 class="card-title">Detailed Flow-by-Flow Inspection</h3>
+                                <p class="card-sub">Individual flow predictions, confidence metrics, and threat classification</p>
+                            </div>
+                        </div>
+                        <div class="table-filters">
+                            <button class="filter-btn active" onclick="filterFlows('ALL')">All Flows</button>
+                            <button class="filter-btn" onclick="filterFlows('MALICIOUS')">Threats Only</button>
+                            <button class="filter-btn" onclick="filterFlows('BENIGN')">Benign Only</button>
+                        </div>
+                    </div>
+                    <div class="card-body table-body">
+                        <div class="table-responsive">
+                            <table class="cyber-table" id="flows-table">
+                                <thead>
+                                    <tr>
+                                        <th>Flow ID</th>
+                                        <th>Duration (s)</th>
+                                        <th>Total Packets</th>
+                                        <th>Total Bytes</th>
+                                        <th>Rate (pkt/s)</th>
+                                        <th>Prediction</th>
+                                        <th>Confidence</th>
+                                        <th>Attack Category</th>
+                                        <th>Severity</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="flows-table-body">
+                                    <!-- Populated dynamically by JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="cyber-footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <span>5G-WIDS &bull; HTSTCL-GNN Intrusion Detection System</span>
+            </div>
+            <div class="footer-right">
+                <span>Deep Learning for 5G Core, URLLC & eMBB Network Protection</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
